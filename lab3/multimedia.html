@@ -6,26 +6,124 @@
     <title>Esch-sur-Alzette - Multimédia</title>
     <link rel="stylesheet" href="styles.css" />
     <style>
+      /* --- ESTILOS ESPECÍFICOS DA PÁGINA MULTIMÉDIA --- */
+
+      /* Configuração das secções para ocuparem a altura da ecrã e terem fundos diferentes */
+      .media-section {
+        min-height: 100vh;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 4rem 2rem;
+        box-sizing: border-box;
+      }
+
+      /* 1. SECÇÃO DA FOTOGRAFIA EMBLEMÁTICA */
+      #hero-foto {
+        position: relative; /* Requisito: position: relative */
+        padding: 0;
+        background-color: #0f172a; /* Cor de Fundo 1 */
+        overflow: hidden;
+      }
+
+      .full-width-img {
+        width: 100%; /* Requisito: width: 100% */
+        height: 100vh;
+        object-fit: cover;
+        display: block;
+      }
+
+      .overlay-text {
+        position: absolute; /* Requisito: position: absolute */
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+        text-align: center;
+        color: #ffffff;
+        text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.8);
+      }
+
+      /* Requisito: Unidade vw para o tamanho de fonte responsivo */
+      .vw-frase {
+        font-size: 4.5vw; /* Redimensiona automaticamente com a largura do navegador */
+        font-weight: 800;
+        line-height: 1.2;
+      }
+
+      /* SECÇÃO DAS GALERIAS DE FOTOGRAFIAS */
+      #fotografias {
+        background-color: #1e293b; /* Cor de Fundo 2 */
+        color: #ffffff;
+      }
+
       .fotografias {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        gap: 10px;
-      }
-      .fotografias img {
-        width: 150px;
-        border-radius: 20px;
+        justify-content: center;
+        gap: 15px;
+        margin-top: 2rem;
+        max-width: 1100px;
       }
 
-      /* Estilização da secção semântica */
+      .fotografias img {
+        width: 180px;
+        height: 130px;
+        object-fit: cover;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+
+        /* Transiciona o tamanho (transform) e a sombra (box-shadow) ao mesmo tempo */
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+      }
+
+      .fotografias img:hover {
+        transform: scale(1.12); /* Ligeiramente maior para destacar melhor */
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5); /* Elevação com sombra */
+      }
+      /* 2. SECÇÃO DO VÍDEO */
+      #video {
+        background-color: #0f172a; /* Cor de Fundo 3 */
+        color: #ffffff;
+      }
+
+      .video-container {
+        margin-top: 1.5rem;
+        width: 100%;
+        max-width: 800px;
+        display: flex;
+        justify-content: center;
+      }
+
+      .video-container iframe {
+        width: 100%;
+        max-width: 700px;
+        height: 400px;
+        border-radius: 12px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+      }
+
+      /* 3. SECÇÃO DA POESIA */
+      #poesia-sec {
+        background-color: #1e293b; /* Cor de Fundo 4 */
+        color: #ffffff;
+      }
+
       #poesia {
-        max-width: 500px;
-        margin: 30px auto;
-        padding: 20px;
-        background-color: #fdfdfd;
-        border: 1px solid #e0e0e0;
-        border-radius: 8px;
+        max-width: 550px;
+        width: 90%;
+        margin: 20px auto;
+        padding: 25px;
+        background-color: #ffffff;
+        border-radius: 12px;
         font-family: "Georgia", serif;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        color: #1e293b;
       }
 
       #poesia h3 {
@@ -33,39 +131,29 @@
         color: #2c3e50;
         border-bottom: 2px solid #3498db;
         padding-bottom: 8px;
-      }
-
-      /* Estilização base do contentor do poema e versos */
-      .poema {
-        padding: 10px;
+        font-size: 1.8rem;
       }
 
       .poema p {
         margin: 8px 0;
-        font-size: 1.1rem;
-        line-height: 1.5;
+        font-size: 1.15rem;
+        line-height: 1.6;
         padding: 6px 10px;
         transition: all 0.3s ease;
       }
 
-      /* ==================================================
-   EXPLORAÇÃO DOS SELETORES :nth-child
-   ================================================== */
-
-      /* 1. Destaca o primeiro verso (1.º filho dentro do .poema) em itálico e com borda à esquerda */
+      /* Seletores :nth-child mantidos */
       .poema p:nth-child(1) {
         font-style: italic;
         border-left: 3px solid #3498db;
         color: #1a252f;
       }
 
-      /* 2. Aplica uma cor de fundo suave aos versos PARES (2.º e 4.º versos) */
       .poema p:nth-child(even) {
         background-color: #f2f7fb;
         border-radius: 4px;
       }
 
-      /* 3. Destaca o último verso (neste caso, o 4.º) com texto a negrito */
       .poema p:nth-child(4) {
         font-weight: bold;
         color: #2980b9;
@@ -74,26 +162,35 @@
   </head>
   <body>
     <header>
-      <h1>Esch-sur-Alzette</h1>
+      <div class="logo">Esch-sur-Alzette</div>
       <nav>
-        <a href="index.html">Home</a>
-        <a href="local.html">Localização</a>
-        <a href="multimedia.html">Multimédia</a>
-        <a href="info.html">Informação</a>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="local.html">Localização</a></li>
+          <li><a href="multimedia.html">Multimédia</a></li>
+          <li><a href="info.html">Informação</a></li>
+        </ul>
       </nav>
     </header>
 
     <main>
-      <h2>Multimédia</h2>
-      <p>Nesta página encontra conteúdos multimédia.</p>
+      <!-- REQUISITO 2: FOTOGRAFIA EMBLEMÁTICA EM LARGURA TOTAL COM FRASE EM VW -->
+      <section id="hero-foto" class="media-section">
+        <img
+          src="images/commune_esch.jpg"
+          alt="Fotografia Emblemática de Esch-sur-Alzette"
+          class="full-width-img"
+        />
+        <div class="overlay-text">
+          <h2 class="vw-frase">
+            Esch-sur-Alzette: Onde o Passado de Ferro Encontra o Futuro
+          </h2>
+        </div>
+      </section>
 
-      <p>
-        <a href="#fotografias">Fotografias</a> | <a href="#video">Vídeo</a> |
-        <a href="#poema">Poema</a>
-      </p>
-
-      <section>
-        <h3 id="fotografias">Fotografias</h3>
+      <!-- GALERIA DE FOTOGRAFIAS -->
+      <section id="fotografias" class="media-section">
+        <h3>Fotografias da Cidade</h3>
         <div class="fotografias">
           <img src="images/commune_esch.jpg" alt="Commune d'Esch" />
           <img
@@ -112,42 +209,45 @@
             alt="Cité des Sciences"
           />
           <img
-            src="images/View_of_Esch-sur-Alzette_2025-04_ - 2.jpg"
+            src="images/View_of_Esch-sur-Alzette_2025-04_--2.jpg"
             alt="Vista de Esch-sur-Alzette"
           />
         </div>
       </section>
 
-      <section>
-        <h3 id="video">Vídeo</h3>
-        <iframe
-          width="560"
-          height="315"
-          src="https://www.youtube.com/embed/YlNMEX-7_TA?si=qntozO_AIjav9jcL"
-          title="YouTube video player"
-          frameborder="0"
-          allow="
-            accelerometer;
-            autoplay;
-            clipboard-write;
-            encrypted-media;
-            gyroscope;
-            picture-in-picture;
-            web-share;
-          "
-          referrerpolicy="strict-origin-when-cross-origin"
-          allowfullscreen
-        ></iframe>
+      <!-- VÍDEO EMBLEMÁTICO -->
+      <section id="video" class="media-section">
+        <h3>Vídeo</h3>
+        <div class="video-container">
+          <iframe
+            src="https://www.youtube.com/embed/YlNMEX-7_TA?si=qntozO_AIjav9jcL"
+            title="YouTube video player"
+            frameborder="0"
+            allow="
+              accelerometer;
+              autoplay;
+              clipboard-write;
+              encrypted-media;
+              gyroscope;
+              picture-in-picture;
+              web-share;
+            "
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
+        </div>
       </section>
 
-      <section>
-        <h3 id="poema">Poesia</h3>
-
-        <div class="poema">
-          <p>Nas margens calmas do rio Alzette,</p>
-          <p>Ergue-se a história da cidade de ferro,</p>
-          <p>Onde o trabalho o futuro projeta,</p>
-          <p>E a tradição abraça o novo tempo.</p>
+      <!-- POESIA -->
+      <section id="poesia-sec" class="media-section">
+        <div id="poesia">
+          <h3>Poesia</h3>
+          <div class="poema">
+            <p>Nas margens calmas do rio Alzette,</p>
+            <p>Ergue-se a história da cidade de ferro,</p>
+            <p>Onde o trabalho o futuro projeta,</p>
+            <p>E a tradição abraça o novo tempo.</p>
+          </div>
         </div>
       </section>
     </main>

@@ -1,144 +1,225 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Esch-sur-Alzette - Informação</title>
-    <link rel="stylesheet" href="styles.css">
-<style
- body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            color: #333333;
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      /* --- ESTRUTURA CSS GRID 2D --- */
+      .info-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+        margin-top: 1.5rem;
+        grid-template-areas:
+          "tabela   tabela   img1"
+          "img2     curiosa  curiosa"
+          "empty    curiosa  curiosa"
+          "img3     img3     img3";
+      }
+
+      /* Mapeamento das áreas */
+      .area-tabela {
+        grid-area: tabela;
+      }
+      .area-curiosa {
+        grid-area: curiosa;
+        background-color: #f8fafc;
+        padding: 1.5rem;
+        border-radius: 12px;
+        border: 1px solid #e2e8f0;
+      }
+      .area-img1 {
+        grid-area: img1;
+      }
+      .area-img2 {
+        grid-area: img2;
+      }
+      .area-img3 {
+        grid-area: img3;
+        height: 180px;
+      }
+      .grid-empty-space {
+        grid-area: empty;
+      } /* Espaço vazio estratégico no Grid */
+
+      /* Estilização dos Cartões de Imagem com Efeito Transition */
+      .grid-card-img {
+        overflow: hidden;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        min-height: 180px;
+      }
+
+      .grid-card-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.3s ease;
+      }
+
+      .grid-card-img img:hover {
+        transform: scale(1.04);
+      }
+
+      /* Estilos da Tabela */
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        background-color: #ffffff;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      }
+
+      th,
+      td {
+        border: 1px solid #d1d5db;
+        padding: 10px 14px;
+      }
+
+      th {
+        background-color: #f3f4f6;
+        color: #1e3a8a;
+      }
+
+      .curiosidades h3 {
+        color: #1e3a8a;
+        margin-bottom: 0.8rem;
+      }
+
+      .curiosidades ul {
+        line-height: 1.7;
+        padding-left: 1.2rem;
+      }
+
+      /* --- RESPONSIVIDADE PARA TELEMÓVEL --- */
+      @media (max-width: 850px) {
+        .info-grid {
+          grid-template-columns: 1fr;
+          grid-template-areas:
+            "tabela"
+            "img1"
+            "curiosa"
+            "img2"
+            "img3";
         }
 
-        /* Estilização da Tabela */
-        table, th, td {
-            border: 1px solid #d1d5db;
-            border-collapse: collapse;
-            padding: 10px 14px;
+        .grid-empty-space {
+          display: none;
         }
 
-        /* Estilização dos cabeçalhos <th> */
-        th {
-            background-color: #f3f4f6;
-            color: #1e3a8a; /* Cor de texto azul escuro para os cabeçalhos */
-            font-weight: bold;
-            text-align: left;
+        .area-img3 {
+          height: auto;
         }
-
-        /* Estilização das células de dados <td> */
-        td {
-            color: #374151; /* Cor de texto cinzento escuro para os dados */
-        }
-
-        /* Cor diferenciada para links na tabela */
-        td a {
-            color: #2563eb;
-            text-decoration: none;
-        }
-
-        td a:hover {
-            text-decoration: underline;
-        }
-
-        /* Estilização da Secção de Curiosidades */
-        .curiosidades {
-            margin-top: 30px;
-        }
-
-        .curiosidades ul {
-            line-height: 1.6;
-        }
-
-        .curiosidades li {
-            margin-bottom: 8px;
-            color: #1f2937;
-        }
-
-        .curiosidades {
-    margin-top: 30px;
-}
-
-.curiosidades h3 {
-    color: #1e3a8a;
-}
-
-.curiosidades ul {
-    line-height: 1.8;
-    padding-left: 20px;
-}
-
-.curiosidades li {
-    color: #374151;
-    margin-bottom: 8px;
-}
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <h1>Esch-sur-Alzette</h1>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="local.html">Localização</a>
-            <a href="multimedia.html">Multimédia</a>
-            <a href="info.html">Informação</a>
-        </nav>
+      <div class="logo">Esch-sur-Alzette</div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="local.html">Localização</a></li>
+          <li><a href="multimedia.html">Multimédia</a></li>
+          <li><a href="info.html">Informação</a></li>
+        </ul>
+      </nav>
     </header>
 
-    <main>
-        <h2>Informações</h2>
-        <p>Nesta página pode consultar dados demográficos, geográficos e institucionais relativos à cidade..</p>
+    <main style="max-width: 1100px; margin: 0 auto; padding: 2rem 1rem">
+      <h2>Informações Gerais</h2>
+      <p>
+        Dados demográficos, geográficos, institucionais e curiosidades sobre a
+        cidade.
+      </p>
 
-        <table border="1">
-        <tr>
-            <!-- rowspan="2" ocupa 2 linhas na vertical -->
-            <th rowspan="2">Demografia</th>
-            <td>População</td>
-            <td>~36.600 hab.</td>
-        </tr>
-        <tr>
-            <td>Densidade populacional</td>
-            <td>~2.500 hab/km²</td>
-        </tr>
-        <tr>
-            <!-- rowspan="3" ocupa 3 linhas na vertical -->
-            <th rowspan="3">Geografia</th>
-            <td>Área</td>
-            <td>14,35 km²</td>
-        </tr>
-        <tr>
-            <td>Canton / Região</td>
-            <td>Esch-sur-Alzette</td>
-        </tr>
-        <tr>
-            <td>País</td>
-            <td>Luxemburgo</td>
-        </tr>
-        <tr>
-            <th>Website</th>
-            <!-- colspan="2" ocupa 2 colunas na horizontal -->
-            <td colspan="2">
+      <!-- Contentor Grid 2D -->
+      <div class="info-grid">
+        <!-- 1. Tabela com Dados -->
+        <div class="area-tabela">
+          <table>
+            <tr>
+              <th rowspan="2">Demografia</th>
+              <td>População</td>
+              <td>~36.600 hab.</td>
+            </tr>
+            <tr>
+              <td>Densidade populacional</td>
+              <td>~2.500 hab/km²</td>
+            </tr>
+            <tr>
+              <th rowspan="3">Geografia</th>
+              <td>Área</td>
+              <td>14,35 km²</td>
+            </tr>
+            <tr>
+              <td>Canton / Região</td>
+              <td>Esch-sur-Alzette</td>
+            </tr>
+            <tr>
+              <td>País</td>
+              <td>Luxemburgo</td>
+            </tr>
+            <tr>
+              <th>Website</th>
+              <td colspan="2">
                 <a href="https://www.esch.lu" target="_blank">www.esch.lu</a>
-            </td>
-        </tr>
-    </table>
+              </td>
+            </tr>
+          </table>
+        </div>
 
-    <section class="curiosidades">
-    <h3>5 Curiosidades sobre Esch-sur-Alzette</h3>
-    <ul>
-        <li><strong>Capital Europeia da Cultura:</strong> A cidade foi nomeada Capital Europeia da Cultura em 2022, promovendo uma grande transformação artística e cultural.</li>
-        <li><strong>Transformação Industrial:</strong> Antigamente o coração da indústria do aço no Luxemburgo, a zona industrial de Belval foi reconvertida num dos polos urbanos e científicos mais modernos da Europa.</li>
-        <li><strong>Cidade Universitária:</strong> É a casa do principal campus da Universidade do Luxemburgo, onde os edifícios académicos modernos foram construídos ao redor dos antigos altos-fornos de ferro preservados.</li>
-        <li><strong>Diversidade Cultural:</strong> É uma das cidades mais cosmopolitas do país, onde vivem mais de 110 nacionalidades diferentes e existe uma comunidade portuguesa muito representativa.</li>
-        <li><strong>A Maior Rua Pedonal:</strong> Possui a maior rua de comércio pedonal do Luxemburgo (a <em>Rue de l'Alzette</em>), com mais de 1 quilómetro de extensão.</li>
-    </ul>
-</section>
+        <!-- 2. Imagem 1 -->
+        <div class="grid-card-img area-img1">
+          <img src="images/info.png" alt="Informação" />
+        </div>
 
+        <!-- 3. Imagem 2 -->
+        <div class="grid-card-img area-img2">
+          <img src="images/luxemburgo.png" alt="Luxemburgo" />
+        </div>
+
+        <!-- 4. Curiosidades (ocupa 2 linhas e 2 colunas) -->
+        <section class="curiosidades area-curiosa">
+          <h3>5 Curiosidades sobre Esch-sur-Alzette</h3>
+          <ul>
+            <li>
+              <strong>Capital Europeia da Cultura:</strong> A cidade foi nomeada
+              Capital Europeia da Cultura em 2022.
+            </li>
+            <li>
+              <strong>Transformação Industrial:</strong> A zona industrial de
+              Belval foi reconvertida num polo moderno.
+            </li>
+            <li>
+              <strong>Cidade Universitária:</strong> O campus foi construído ao
+              redor dos antigos altos-fornos.
+            </li>
+            <li>
+              <strong>Diversidade Cultural:</strong> Vivem mais de 110
+              nacionalidades diferentes na cidade.
+            </li>
+            <li>
+              <strong>A Maior Rua Pedonal:</strong> Possui a maior rua de
+              comércio pedonal do Luxemburgo.
+            </li>
+          </ul>
+        </section>
+
+        <!-- 5. Espaço Vazio para dar 'peso em branco' no Web Design -->
+        <div class="grid-empty-space"></div>
+
+        <!-- 6. Imagem 3 Panorâmica (ocupa toda a largura inferior) -->
+        <div class="grid-card-img area-img3">
+          <img src="images/cidadeDesenho.png" alt="Cidade Desenho" />
+        </div>
+      </div>
     </main>
 
     <footer>
-        <p>DIW 2026</p>
+      <p>DIW 2026</p>
     </footer>
-</body>
+  </body>
 </html>
