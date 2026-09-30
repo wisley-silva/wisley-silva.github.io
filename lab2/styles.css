@@ -1,0 +1,138 @@
+/* Reset básico de margens */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0; /* Fundo cinzento claro geral */
+    color: #333333;
+}
+
+/* 1. Cabeçalho (Faixa Verde) */
+header {
+    background-color: #4cae51; /* Verde */
+    color: white;
+    text-align: center;
+    padding: 25px 10px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+/* 2. Barra de Navegação (Faixa Escura) */
+nav {
+    background-color: #2d2d2d; /* Cinzento escuro / Preto */
+    text-align: center;
+    padding: 10px 0;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 12px;
+    font-size: 0.9rem;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* 3. Bloco Principal de Conteúdo (Caixa Branca ao Centro) */
+main {
+    background-color: #ffffff; /* Caixa branca */
+    max-width: 1000px;
+    margin: 20px auto; /* Centra a caixa no ecrã */
+    padding: 25px;
+    border-radius: 8px; /* Cantos arredondados */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.banner-images {
+    display: flex;
+    gap: 15px;
+    max-width: 1000px;
+    margin: 20px auto 0 auto;
+    padding: 0 25px;
+    box-sizing: border-box;
+}
+
+
+.banner-images img {
+    width: 33.33%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.banner-images img:first-child {
+    object-fit: contain;
+    background-color: #ffffff;
+}
+
+/* Galeria de Fotos (Multimédia) */
+.fotografias {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.fotografias img {
+    width: 150px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+/* Estilização da Poesia com :nth-child */
+#poesia {
+    max-width: 500px;
+    margin: 30px 0;
+    padding: 20px;
+    background-color: #fdfdfd;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-family: 'Georgia', serif;
+}
+
+#poesia h3 {
+    margin-top: 0;
+    color: #2c3e50;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 8px;
+}
+
+.poema p {
+    margin: 8px 0;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    padding: 6px 10px;
+}
+
+.poema p:nth-child(1) {
+    font-style: italic;
+    border-left: 3px solid #3498db;
+    color: #1a252f;
+}
+
+.poema p:nth-child(even) {
+    background-color: #f2f7fb;
+    border-radius: 4px;
+}
+
+.poema p:nth-child(4) {
+    font-weight: bold;
+    color: #2980b9;
+}
+
+/* 4. Rodapé (Faixa Escura no fundo) */
+footer {
+    background-color: #2d2d2d;
+    color: white;
+    text-align: center;
+    padding: 12px;
+    font-size: 0.8rem;
+    margin-top: 30px;
+}

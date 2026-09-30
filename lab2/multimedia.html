@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Esch-sur-Alzette - Multimédia</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      .fotografias {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .fotografias img {
+        width: 150px;
+        border-radius: 20px;
+      }
+
+      /* Estilização da secção semântica */
+      #poesia {
+        max-width: 500px;
+        margin: 30px auto;
+        padding: 20px;
+        background-color: #fdfdfd;
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        font-family: "Georgia", serif;
+      }
+
+      #poesia h3 {
+        margin-top: 0;
+        color: #2c3e50;
+        border-bottom: 2px solid #3498db;
+        padding-bottom: 8px;
+      }
+
+      /* Estilização base do contentor do poema e versos */
+      .poema {
+        padding: 10px;
+      }
+
+      .poema p {
+        margin: 8px 0;
+        font-size: 1.1rem;
+        line-height: 1.5;
+        padding: 6px 10px;
+        transition: all 0.3s ease;
+      }
+
+      /* ==================================================
+   EXPLORAÇÃO DOS SELETORES :nth-child
+   ================================================== */
+
+      /* 1. Destaca o primeiro verso (1.º filho dentro do .poema) em itálico e com borda à esquerda */
+      .poema p:nth-child(1) {
+        font-style: italic;
+        border-left: 3px solid #3498db;
+        color: #1a252f;
+      }
+
+      /* 2. Aplica uma cor de fundo suave aos versos PARES (2.º e 4.º versos) */
+      .poema p:nth-child(even) {
+        background-color: #f2f7fb;
+        border-radius: 4px;
+      }
+
+      /* 3. Destaca o último verso (neste caso, o 4.º) com texto a negrito */
+      .poema p:nth-child(4) {
+        font-weight: bold;
+        color: #2980b9;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Esch-sur-Alzette</h1>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="local.html">Localização</a>
+        <a href="multimedia.html">Multimédia</a>
+        <a href="info.html">Informação</a>
+      </nav>
+    </header>
+
+    <main>
+      <h2>Multimédia</h2>
+      <p>Nesta página encontra conteúdos multimédia.</p>
+
+      <p>
+        <a href="#fotografias">Fotografias</a> | <a href="#video">Vídeo</a> |
+        <a href="#poema">Poema</a>
+      </p>
+
+      <section>
+        <h3 id="fotografias">Fotografias</h3>
+        <div class="fotografias">
+          <img src="images/commune_esch.jpg" alt="Commune d'Esch" />
+          <img
+            src="images/gaalgebierg-le-parc-municipal.jpg"
+            alt="Parque Municipal Gaalgebierg"
+          />
+          <img src="images/gare_esch.jpg" alt="Gare d'Esch" />
+          <img src="images/hotelville_img3-690x626.jpg" alt="Hôtel de Ville" />
+          <img src="images/images.jpg" alt="Lojas" />
+          <img
+            src="images/placedelaresistance.jpg"
+            alt="Place de la Résistance"
+          />
+          <img
+            src="images/the-city-of-science-photo.jpg"
+            alt="Cité des Sciences"
+          />
+          <img
+            src="images/View_of_Esch-sur-Alzette_2025-04_ - 2.jpg"
+            alt="Vista de Esch-sur-Alzette"
+          />
+        </div>
+      </section>
+
+      <section>
+        <h3 id="video">Vídeo</h3>
+        <iframe
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/YlNMEX-7_TA?si=qntozO_AIjav9jcL"
+          title="YouTube video player"
+          frameborder="0"
+          allow="
+            accelerometer;
+            autoplay;
+            clipboard-write;
+            encrypted-media;
+            gyroscope;
+            picture-in-picture;
+            web-share;
+          "
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+        ></iframe>
+      </section>
+
+      <section>
+        <h3 id="poema">Poesia</h3>
+
+        <div class="poema">
+          <p>Nas margens calmas do rio Alzette,</p>
+          <p>Ergue-se a história da cidade de ferro,</p>
+          <p>Onde o trabalho o futuro projeta,</p>
+          <p>E a tradição abraça o novo tempo.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Luxemburgo 2026</p>
+    </footer>
+  </body>
+</html>
