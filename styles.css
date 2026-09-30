@@ -405,3 +405,95 @@ footer {
   color: #cbd5e1;
 }
 
+/* --- ESTILOS DA PÁGINA DE TUTORIAIS --- */
+
+.tutorials-section {
+  padding: 3rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.tutorials-section h2 {
+  font-size: 2rem;
+  color: #38bdf8;
+  margin-bottom: 2rem;
+}
+
+/* Grelha para organizar os 4 artigos de vídeos */
+.tutorials-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+/* Cada cartão <article> */
+.tutorial-card {
+  background-color: #1e293b;
+  border-radius: 12px;
+  padding: 1.5rem;
+  flex: 1 1 450px; /* Adapta-se a ecrãs grandes e pequenos */
+  max-width: 550px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.tutorial-card h3 {
+  font-size: 1.3rem;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+/* Contentor do iframe para manter a proporção 16:9 do vídeo */
+.video-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* Rácio 16:9 */
+  height: 0;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* --- ESTILOS DA SECÇÃO DE CODEPENS --- */
+
+.codepens-section {
+  padding: 3rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.codepens-section h2 {
+  font-size: 2rem;
+  color: #38bdf8;
+  margin-bottom: 2rem;
+}
+
+.codepens-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.codepen-card {
+  background-color: #1e293b;
+  border-radius: 12px;
+  padding: 1.5rem;
+  flex: 1 1 450px;
+  max-width: 550px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.codepen-card h3 {
+  font-size: 1.3rem;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
