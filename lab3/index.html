@@ -1,34 +1,81 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Esch-sur-Alzette</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfólio de Projetos | Wísley Silva</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <!-- Header com o Menu de Navegação em <nav> e <ul> -->
     <header>
-        <h1>Esch-sur-Alzette</h1>
+      <nav>
+        <ul>
+          <li><a href="#inicio">Início</a></li>
+          <li><a href="#projetos">Projetos</a></li>
+          <li><a href="#cadeira">Interfaces Web</a></li>
+        </ul>
+      </nav>
     </header>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="local.html">Localização</a>
-            <a href="multimedia.html">Multimédia</a>
-            <a href="info.html">Informação</a>
-        </nav>
 
-            <div class="banner-images">
-        <img src="images/Logo_Commune_Esch-sur-Alzette.png" alt="Logo Commune Esch-sur-Alzette">
-        <img src="images/parque.jpg" alt="Parque Municipal">
-        <img src="images/resistance.jpg" alt="Place de la Résistance">
-            </div>
     <main>
+      <!-- Secção 1: Início / Hero Page -->
+      <section id="inicio" class="hero-section">
+        <div class="hero-content">
+          <span class="subtitle">ENGENHARIA DE SOFTWARE & DESENVOLVIMENTO</span>
+          <h1>Portfólio de <span class="highlight">Projetos Web</span></h1>
+          <p class="motivational-text">
+            "A tecnologia move o mundo, mas a criatividade e a dedicação
+            constroem o futuro."
+          </p>
+          <a href="#projetos" class="cta-button">Ver Projetos &rarr;</a>
+        </div>
+      </section>
 
-        <h2>Home</h2>
-        <p>A minha cidade é muito linda!!!</p>
+      <!-- Secção 2: Projetos -->
+      <section id="projetos" class="projects-section">
+        <div class="projects-header">
+          <h2>Projetos / Labs</h2>
+          <p>Alguns exercícios desenvolvidos ao longo da UC.</p>
+        </div>
+
+        <div class="cards-container">
+          <div class="card">
+            <h3>Lab 1</h3>
+            <p>Estrutura base e semântica</p>
+          </div>
+          <div class="card">
+            <h3>Lab 2</h3>
+            <p>Estilos e layout responsivo</p>
+          </div>
+          <div class="card">
+            <h3>Lab 3</h3>
+            <p>Interatividade e Landing Page</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Secção 3: Interfaces Web (Cadeira) -->
+      <section id="cadeira" class="course-section">
+        <div class="course-container">
+          <div class="course-text">
+            <h2>Desenvolvimento de Interfaces Web</h2>
+            <p>
+              A disciplina de Desenvolvimento de Interfaces Web (DIW) foca-se na
+              criação de experiências digitais modernas, acessíveis e
+              responsivas, combinando HTML5, CSS3 e boas práticas de Web Design.
+            </p>
+          </div>
+          <div class="course-wordcloud">
+            <img src="images/diw.svg" alt="Wordcloud da Disciplina DIW" />
+          </div>
+        </div>
+      </section>
     </main>
+
     <footer>
-        <p>DIW 2026</p>
+      <p>© Wísley Silva</p>
     </footer>
-</body>
+  </body>
 </html>

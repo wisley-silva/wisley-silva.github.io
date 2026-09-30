@@ -1,138 +1,242 @@
-/* Reset básico de margens */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f0f0f0; /* Fundo cinzento claro geral */
-    color: #333333;
+* {
+  font-family: sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box; /* Garante que padding/borders não afetem o tamanho total */
 }
 
-/* 1. Cabeçalho (Faixa Verde) */
+/* Base de layout */
+header, footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Header / Menu Fixo */
 header {
-    background-color: #4cae51; /* Verde */
-    color: white;
-    text-align: center;
-    padding: 25px 10px;
+  position: sticky;
+  top: 0;
+  height: 10vh;
+  background-color: #1e293b; /* Fundo escuro elegante para o menu */
+  z-index: 1000;
 }
 
-header h1 {
-    margin: 0;
-    font-size: 1.8rem;
-    font-weight: bold;
-}
-
-/* 2. Barra de Navegação (Faixa Escura) */
-nav {
-    background-color: #2d2d2d; /* Cinzento escuro / Preto */
-    text-align: center;
-    padding: 10px 0;
+/* Estilos do Menu de Navegação */
+nav ul {
+  list-style: none; /* Remove os bullets */
+  padding: 0;       /* Remove o recuo interno */
+  margin: 0;        /* Remove o espaço externo */
+  display: flex;    /* Alinha os itens em linha */
+  gap: 2rem;        /* Espaçamento entre os links */
 }
 
 nav a {
-    color: white;
-    text-decoration: none;
-    margin: 0 12px;
-    font-size: 0.9rem;
+  text-decoration: none; /* Remove o sublinhado dos links */
+  color: #f8fafc;        /* Cor do texto do link */
+  font-size: 1.2rem;
+  font-weight: 600;
+  transition: color 0.3s ease;
 }
 
 nav a:hover {
-    text-decoration: underline;
+  color: #38bdf8;        /* Destaque ao passar o rato */
 }
 
-/* 3. Bloco Principal de Conteúdo (Caixa Branca ao Centro) */
-main {
-    background-color: #ffffff; /* Caixa branca */
-    max-width: 1000px;
-    margin: 20px auto; /* Centra a caixa no ecrã */
-    padding: 25px;
-    border-radius: 8px; /* Cantos arredondados */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+/* --- SECÇÃO 1: HERO IMAGE (60-30-10) --- */
+.hero-section {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+
+  /* Imagem 'hero-image1.png' com overlay escuro para leitura */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('images/hero-image1.png');
+  background-size: cover;      /* Cobre todo o elemento sem se repetir */
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
-.banner-images {
-    display: flex;
-    gap: 15px;
-    max-width: 1000px;
-    margin: 20px auto 0 auto;
-    padding: 0 25px;
-    box-sizing: border-box;
+/* Posicionamento do conteúdo com espaço livre em redor (Peso Visual) */
+.hero-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Centraliza perfeitamente no ecrã */
+  text-align: center;
+  width: 90%;
+  max-width: 750px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-
-.banner-images img {
-    width: 33.33%;
-    height: 250px;
-    object-fit: cover;
-    border-radius: 4px;
+/* PEQUENO */
+.subtitle {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #e2e8f0; /* Cor clara para bom contraste */
+  text-transform: uppercase;
+  margin-bottom: 1rem;
 }
 
-.banner-images img:first-child {
-    object-fit: contain;
-    background-color: #ffffff;
+/* GRANDE (30% Cor Complementar) */
+.hero-content h1 {
+  font-size: 3.2rem;
+  line-height: 1.15;
+  font-weight: 800;
+  color: #f8fafc;
+  margin-bottom: 1.25rem;
 }
 
-/* Galeria de Fotos (Multimédia) */
-.fotografias {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-top: 15px;
+/* 10% Cor Acento para destaque */
+.hero-content h1 .highlight {
+  color: #38bdf8; /* Sky Blue */
 }
 
-.fotografias img {
-    width: 150px;
-    height: 100px;
-    object-fit: cover;
-    border-radius: 20px;
+/* MÉDIO */
+.motivational-text {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #cbd5e1;
+  font-style: italic;
+  margin-bottom: 2.25rem;
+  max-width: 600px;
 }
 
-/* Estilização da Poesia com :nth-child */
-#poesia {
-    max-width: 500px;
-    margin: 30px 0;
-    padding: 20px;
-    background-color: #fdfdfd;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    font-family: 'Georgia', serif;
+/* CALL TO ACTION (10% Cor Acento) */
+.cta-button {
+  display: inline-block;
+  padding: 0.9rem 2.2rem;
+  background-color: #2563eb; /* Cor de Acento */
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 50px;
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-#poesia h3 {
-    margin-top: 0;
-    color: #2c3e50;
-    border-bottom: 2px solid #3498db;
-    padding-bottom: 8px;
+.cta-button:hover {
+  background-color: #1d4ed8;
+  transform: translateY(-3px);
 }
 
-.poema p {
-    margin: 8px 0;
-    font-size: 1.1rem;
-    line-height: 1.5;
-    padding: 6px 10px;
+/* --- SECÇÃO 2: PROJETOS (FLEXBOX CARDS) --- */
+.projects-section {
+  min-height: 100vh;
+  background-color: #a112e3; /* Cor de fundo suave conforme exemplo */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 2rem;
+  gap: 2.5rem;
 }
 
-.poema p:nth-child(1) {
-    font-style: italic;
-    border-left: 3px solid #3498db;
-    color: #1a252f;
+.projects-header {
+  text-align: center;
+  color: #1e293b;
 }
 
-.poema p:nth-child(even) {
-    background-color: #f2f7fb;
-    border-radius: 4px;
+.projects-header h2 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
 }
 
-.poema p:nth-child(4) {
-    font-weight: bold;
-    color: #2980b9;
+.cards-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap; /* Garante adaptação responsiva */
+  gap: 1.5rem;
+  max-width: 1000px;
+  width: 100%;
 }
 
-/* 4. Rodapé (Faixa Escura no fundo) */
+.card {
+  background-color: #3bb836; /* Estilo de cartão rosa conforme o layout */
+  color: #1e293b;
+  padding: 2rem;
+  border-radius: 16px;
+  width: 280px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15);
+}
+
+.card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* --- SECÇÃO 3: DISCIPLINA DIW (RESPONSIVA COM @MEDIA) --- */
+.course-section {
+  min-height: 100vh;
+  background-color: #0f172a;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+}
+
+/* Disposição por defeito (Desktop): Lado a lado */
+.course-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1100px;
+  width: 100%;
+  gap: 3rem;
+}
+
+.course-text {
+  flex: 1;
+}
+
+.course-text h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #38bdf8;
+}
+
+.course-text p {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: #cbd5e1;
+}
+
+.course-wordcloud {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.course-wordcloud img {
+  width: 100%;
+  max-width: 450px;
+  border-radius: 12px;
+  object-fit: contain;
+}
+
+/* --- FOOTER --- */
 footer {
-    background-color: #2d2d2d;
-    color: white;
+  height: 10vh;
+  background-color: #020617;
+  color: #94a3b8;
+  font-size: 1rem;
+}
+
+/* --- RESPONSIVIDADE (Telemóvel / ecrãs até 768px) --- */
+@media (max-width: 768px) {
+  .course-container {
+    flex-direction: column; /* Empilha o texto e a imagem em telemóvel */
     text-align: center;
-    padding: 12px;
-    font-size: 0.8rem;
-    margin-top: 30px;
+  }
 }
