@@ -1,57 +1,85 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Wísley Silva</title>
+    <title>Portfólio de Projetos | Wísley Silva</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
+
   <body>
+    <!-- Menu do PORTFÓLIO -->
     <header>
-      <h1 style="color: Purple">Primeira Página Web!</h1>
+      <div class="logo">Portfólio</div>
       <nav>
-        <a href="index.html">Home</a>
-        <a href="lab1/">A Minha Cidade</a>
+        <ul>
+          <li><a href="#inicio">Início</a></li>
+          <li><a href="#projetos">Projetos</a></li>
+          <li><a href="#cadeira">Interfaces Web</a></li>
+        </ul>
       </nav>
     </header>
 
     <main>
-      <p style="color: DarkBlue">Eis a minha primeira página Web!</p>
-      <p>
-        Na Unidade Curricular de
-        <a
-          href="https://moodle.ensinolusofona.pt/course/view.php?id=11232"
-          target="_blank"
-        >
-          Desenvolvimento de Interfaces Web
-        </a>
-        abordaremos as seguintes tecnologias Web &#127760;:
-      </p>
-      <ul>
-        <li style="color: Turquoise">HTML</li>
-        <li style="color: DarkOliveGreen">CSS</li>
-        <li style="color: DeepPink">JavaScript</li>
-        <li style="color: DarkSalmon">React e Next.js</li>
-      </ul>
-      <p style="color: Red">Iremos criar soluções criativas!</p>
+      <!-- Secção Hero do Portfólio -->
+      <section id="inicio" class="hero-section">
+        <div class="hero-content">
+          <span class="subtitle">ENGENHARIA DE SOFTWARE & DESENVOLVIMENTO</span>
+          <h1>Portfólio de <span class="highlight">Projetos Web</span></h1>
+          <p class="motivational-text">
+            "A tecnologia move o mundo, mas a criatividade e a dedicação
+            constroem o futuro."
+          </p>
+          <a href="#projetos" class="cta-button">Ver Projetos &rarr;</a>
+        </div>
+      </section>
 
-      <nav>
-        <ul>
-          <li><a href="lab1/index.html">Lab1</a></li>
-          <li><a href="lab2/index.html">Lab2</a></li>
-          <li><a href="palma/">Quizz 3</a></li>
-          <li><a href="lab3/index.html">Lab3</a></li>
-        </ul>
-      </nav>
-      <img
-        src="images/diw.svg"
-        alt="Desenvolvimento de Interfaces Web"
-        style="width: 300px"
-      />
+      <!-- Secção de Projetos -->
+      <section id="projetos" class="projects-section">
+        <div class="projects-header">
+          <h2>Projetos / Labs</h2>
+          <p>
+            Exercícios desenvolvidos na UC de Desenvolvimento de Interfaces Web.
+          </p>
+        </div>
+
+        <div class="cards-container">
+          <div class="card">
+            <h3>Lab 1</h3>
+            <a href="lab1/index.html" class="cta-button">Ver Cidade &rarr;</a>
+          </div>
+          <div class="card">
+            <h3>Lab 2</h3>
+            <a href="lab2/index.html" class="cta-button">Ver Cidade &rarr;</a>
+          </div>
+          <div class="card">
+            <h3>Lab 3</h3>
+            <p>Projeto Cidade: Esch-sur-Alzette</p>
+            <!-- Link para abrir a página inicial da cidade -->
+            <a href="lab3/cidade.html" class="cta-button">Ver Cidade &rarr;</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Secção da Cadeira -->
+      <section id="cadeira" class="course-section">
+        <div class="course-container">
+          <div class="course-text">
+            <h2>Desenvolvimento de Interfaces Web</h2>
+            <p>
+              Criação de experiências digitais modernas, acessíveis e
+              responsivas combinando HTML5, CSS3 e boas práticas.
+            </p>
+          </div>
+          <div class="course-wordcloud">
+            <img src="images/diw.svg" alt="Wordcloud da Disciplina DIW" />
+          </div>
+        </div>
+      </section>
     </main>
 
     <footer>
-      <p>Universidade Lusófona © 2026</p>
+      <p>© Wísley Silva - 2026</p>
     </footer>
   </body>
 </html>
