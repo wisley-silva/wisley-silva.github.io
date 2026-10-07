@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lab 4 - Eventos JavaScript</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <p id="passa">1. Passa por aqui!</p>
+
+    <p>
+      <span id="texto-pinta">2.Escolhe uma cor para mim!!! ;-)</span>
+      <button onclick="mudarCor('purple')">Purple</button>
+      <button onclick="mudarCor('yellow')">Yellow</button>
+      <button onclick="mudarCor('blue')">Blue</button>
+    </p>
+
+    <p>
+      3.Escreva alguma coisa...
+      <input type="text" id="campo-escrita" />
+    </p>
+
+    <form id="form-cor">
+      <label for="input-cor">4. Escolha uma cor:</label>
+      <input type="color" id="input-cor" required />
+    </form>
+
+    <p>
+      5. <button id="btn-conta">Conta!</button>
+      <span id="contador">0</span>
+    </p>
+
+    <script src="scripts/main.js"></script>
+  </body>
+</html>
