@@ -1,48 +1,56 @@
-// 1. Evento: Passar o rato por cima (mouseover e mouseout)
-const passaTexto = document.getElementById('passa');
+// --- 1. EVENTO: click (Contador) ---
+const btnConta = document.getElementById('btn-conta');
+const spanContador = document.getElementById('contador');
+let totalCliques = 0;
 
-passaTexto.addEventListener('mouseover', () => {
-    passaTexto.innerText = "1. Obrigado por passar!";
+btnConta.addEventListener('click', () => {
+    totalCliques++;
+    spanContador.textContent = totalCliques;
+    spanContador.style.color = totalCliques % 2 === 0 ? '#e74c3c' : '#2ecc71';
+    spanContador.style.fontWeight = 'bold';
 });
 
-passaTexto.addEventListener('mouseout', () => {
-    passaTexto.innerText = "1. Passa por aqui!";
+// --- 2. EVENTO: dblclick (Duplo clique) ---
+const caixaDuplo = document.getElementById('caixa-duplo');
+
+caixaDuplo.addEventListener('dblclick', () => {
+    caixaDuplo.textContent = '⚡ Duplo clique detetado!';
+    caixaDuplo.style.backgroundColor = '#9b59b6';
+    caixaDuplo.style.color = '#ffffff';
+    caixaDuplo.style.transform = 'scale(1.05)';
 });
 
+// --- 3 & 4. EVENTOS: mouseover e mouseout ---
+const caixaHover = document.getElementById('caixa-hover');
 
-// 2. Evento: Mudar cor do texto através de botões (click)
-function mudarCor(cor) {
-    const textoPinta = document.getElementById('texto-pinta');
-    textoPinta.style.color = cor;
-}
-
-
-// 3. Evento: Trocar cor do fundo da caixa de texto ao digitar (keydown / keyup)
-const campoEscrita = document.getElementById('campo-escrita');
-
-campoEscrita.addEventListener('keydown', () => {
-    campoEscrita.style.backgroundColor = '#e0f7fa';
+caixaHover.addEventListener('mouseover', () => {
+    caixaHover.textContent = '🎯 O rato está aqui dentro!';
+    caixaHover.style.backgroundColor = '#f39c12';
+    caixaHover.style.color = '#ffffff';
 });
 
-campoEscrita.addEventListener('keyup', () => {
-    campoEscrita.style.backgroundColor = '#ffffff';
+caixaHover.addEventListener('mouseout', () => {
+    caixaHover.textContent = 'Passe o rato por cima!';
+    caixaHover.style.backgroundColor = '#ffffff';
+    caixaHover.style.color = '#333333';
 });
 
+// --- 5. EVENTO: mousemove ---
+const areaMovimento = document.getElementById('area-movimento');
+const coordsTexto = document.getElementById('coordenadas');
 
-// 4. Evento: Mudar a cor de fundo ao selecionar no seletor de cor (input)
+areaMovimento.addEventListener('mousemove', (event) => {
+    const x = event.offsetX;
+    const y = event.offsetY;
+
+    coordsTexto.textContent = `Coordenadas: X: ${x}, Y: ${y}`;
+    coordsTexto.style.color = `hsl(${(x + y) % 360}, 70%, 40%)`;
+    areaMovimento.style.borderColor = `hsl(${x % 360}, 60%, 50%)`;
+});
+
+// --- EXTRA: Mudar fundo da página (input) ---
 const inputCor = document.getElementById('input-cor');
 
 inputCor.addEventListener('input', (event) => {
     document.body.style.backgroundColor = event.target.value;
-});
-
-
-// 5. Evento: Contador incremental (click)
-const btnConta = document.getElementById('btn-conta');
-const spanContador = document.getElementById('contador');
-let valorContador = 0;
-
-btnConta.addEventListener('click', () => {
-    valorContador++;
-    spanContador.innerText = valorContador;
 });

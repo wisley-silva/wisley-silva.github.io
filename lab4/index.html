@@ -1,35 +1,50 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lab 4 - Eventos JavaScript</title>
+    <title>Lab 4 - Eventos de Rato e Contador</title>
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <p id="passa">1. Passa por aqui!</p>
+    <main class="container">
+      <h1>Laboratório 4: Eventos de Rato</h1>
 
-    <p>
-      <span id="texto-pinta">2.Escolhe uma cor para mim!!! ;-)</span>
-      <button onclick="mudarCor('purple')">Purple</button>
-      <button onclick="mudarCor('yellow')">Yellow</button>
-      <button onclick="mudarCor('blue')">Blue</button>
-    </p>
+      <!-- Evento 1: click + Contador -->
+      <section class="card">
+        <h2>1. Contador de Cliques (click)</h2>
+        <button id="btn-conta">Clica em mim!</button>
+        <p>Total de cliques: <span id="contador">0</span></p>
+      </section>
 
-    <p>
-      3.Escreva alguma coisa...
-      <input type="text" id="campo-escrita" />
-    </p>
+      <!-- Evento 2: dblclick -->
+      <section class="card">
+        <h2>2. Duplo Clique (dblclick)</h2>
+        <div id="caixa-duplo" class="box">Dê um duplo clique aqui!</div>
+      </section>
 
-    <form id="form-cor">
-      <label for="input-cor">4. Escolha uma cor:</label>
-      <input type="color" id="input-cor" required />
-    </form>
+      <!-- Eventos 3 e 4: mouseover + mouseout -->
+      <section class="card">
+        <h2>3 e 4. Passar o Rato (mouseover / mouseout)</h2>
+        <div id="caixa-hover" class="box">Passe o rato por cima!</div>
+      </section>
 
-    <p>
-      5. <button id="btn-conta">Conta!</button>
-      <span id="contador">0</span>
-    </p>
+      <!-- Evento 5: mousemove -->
+      <section class="card">
+        <h2>5. Rastreio de Movimento (mousemove)</h2>
+        <div id="area-movimento" class="box-large">
+          Mova o rato dentro desta área
+        </div>
+        <p id="coordenadas">Coordenadas: X: 0, Y: 0</p>
+      </section>
+
+      <!-- Extra: Seletor de Cor -->
+      <section class="card">
+        <h2>6. Cor de Fundo da Página</h2>
+        <label for="input-cor">Escolha uma cor de fundo: </label>
+        <input type="color" id="input-cor" value="#f4f6f9" />
+      </section>
+    </main>
 
     <script src="scripts/main.js"></script>
   </body>
