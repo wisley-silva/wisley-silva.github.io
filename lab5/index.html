@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lab 4 - Eventos JavaScript</title>
+    <link rel="stylesheet" />
+  </head>
+  <body>
+    <!-- Evento 1: Passar o rato por cima (mouseover / mouseout) -->
+    <p id="passa">1. Passa por aqui!</p>
+
+    <!-- Evento 2: Mudar cor do texto ao clicar (click) -->
+    <p>
+      <span id="texto-pinta">2. Pinta-me!</span>
+      <button onclick="mudarCor('red')">Red</button>
+      <button onclick="mudarCor('green')">Green</button>
+      <button onclick="mudarCor('blue')">Blue</button>
+    </p>
+
+    <!-- Evento 3: Alterar o fundo do input ao escrever/teclar (keydown / keyup) -->
+    <p>
+      3. Experimenta escrever...
+      <input type="text" id="campo-escrita" />
+    </p>
+
+    <!-- Evento 4: Mudar a cor de fundo da página via formulário (submit) -->
+    <form id="form-cor">
+      <label for="input-cor">4. Escolha uma cor em inglês: </label>
+      <input type="text" id="input-cor" required />
+      <button type="submit">submeter</button>
+    </form>
+
+    <!-- Evento 5: Contador (click) -->
+    <p>
+      5. <button id="btn-conta">Conta!</button>
+      <span id="contador">0</span>
+    </p>
+
+    <script>
+      //1
+      const passaTexto = document.querySelector("#passa");
+      passaTexto.addEventListener("mouseover", () => {
+        passaTexto.textContent = "1. Obrigado por passares!";
+      });
+
+      passaTexto.addEventListener("mouseout", () => {
+        passaTexto.textContent = "1. Passa por aqui!";
+      });
+
+      //2
+      function mudarCor(cor) {
+        document.querySelector("#texto-pinta").style.color = cor;
+      }
+
+      //3
+
+      const campoEscrita = document.querySelector("#campo-escrita");
+
+      campoEscrita.addEventListener("keyup", () => {
+        const r = Math.floor(Math.random() * 256);
+        const g = Math.floor(Math.random() * 256);
+        const b = Math.floor(Math.random() * 256);
+
+        campoEscrita.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+      });
+
+      //4
+
+      const fundoCor = document.querySelector("#form-cor");
+
+      fundoCor.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const corDigitada = document.querySelector("#input-cor").value;
+        document.body.style.backgroundColor = corDigitada;
+      });
+
+      //5
+    </script>
+  </body>
+</html>
