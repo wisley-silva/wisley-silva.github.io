@@ -12,10 +12,10 @@
 
     <!-- Evento 2: Mudar cor do texto ao clicar (click) -->
     <p>
-      <span id="texto-pinta">2. Pinta-me!</span>
-      <button onclick="mudarCor('red')">Red</button>
-      <button onclick="mudarCor('green')">Green</button>
-      <button onclick="mudarCor('blue')">Blue</button>
+      <span id="texto-pinta">2. Dá-me cor parceiro :-p!</span>
+      <button class="color" data-color="red">Red</button>
+      <button class="color" data-color="yellow">Yellow</button>
+      <button class="color" data-color="black">Black</button>
     </p>
 
     <!-- Evento 3: Alterar o fundo do input ao escrever/teclar (keydown / keyup) -->
@@ -49,9 +49,13 @@
       });
 
       //2
-      function mudarCor(cor) {
-        document.querySelector("#texto-pinta").style.color = cor;
-      }
+
+      document.querySelectorAll("button.color").forEach((botao) => {
+        botao.addEventListener("click", () => {
+          const cor = botao.dataset.color;
+          document.querySelector("#texto-pinta").style.color = cor;
+        });
+      });
 
       //3
 
