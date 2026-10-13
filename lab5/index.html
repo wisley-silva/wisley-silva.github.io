@@ -76,6 +76,16 @@
       });
 
       //5
+
+      const btnConta = document.querySelector("#btn-conta");
+      const spanContador = document.querySelector("#contador");
+
+      let valorContador = 0;
+
+      btnConta.addEventListener("click", () => {
+        valorContador++;
+        spanContador.textContent = valorContador;
+      });
     </script>
   </body>
 </html>
