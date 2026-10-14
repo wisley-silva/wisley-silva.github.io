@@ -4,7 +4,26 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lab 4 - Eventos JavaScript</title>
-    <link rel="stylesheet" />
+    <style>
+      #container-flex {
+        height: 200px;
+        background-color: #e0e0e0;
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        padding: 10px;
+        box-sizing: border-box;
+        margin-top: 10px;
+        list-style: none; /* Remove os pontos padrão da lista <ul> */
+      }
+
+      .bola {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background-color: #3498db;
+      }
+    </style>
   </head>
   <body>
     <!-- Evento 1: Passar o rato por cima (mouseover / mouseout) -->
@@ -25,17 +44,55 @@
     </p>
 
     <!-- Evento 4: Mudar a cor de fundo da página via formulário (submit) -->
-    <form id="form-cor">
-      <label for="input-cor">4. Escolha uma cor em inglês: </label>
-      <input type="text" id="input-cor" required />
-      <button type="submit">submeter</button>
-    </form>
+    <p>
+      <label for="select-cor">4. Escolha uma cor: </label>
+      <select id="select-cor">
+        <option value="White">White</option>
+        <option value="Red">Red</option>
+        <option value="Blue">Blue</option>
+      </select>
+    </p>
 
     <!-- Evento 5: Contador (click) -->
     <p>
       5. <button id="btn-conta">Conta!</button>
       <span id="contador">0</span>
     </p>
+
+    <!-- Evento 6 - onsubmit-->
+
+    <section class="onsubmit">
+      <form id="utilizador">
+        <label for="nome">6.</label>
+        <input id="nome" type="text" placeholder="insira o seu nome" required />
+        <input id="idade" type="number" placeholder="idade" required />
+        <input type="submit" value="Submit" />
+      </form>
+      <p id="mensagem-utilizador"></p>
+    </section>
+
+    <section class="contador-localStorage">
+      <p>
+        7. Automatic Counter:
+        <span id="automatic-counter">0</span>
+      </p>
+    </section>
+
+    <section class="exercicio-flex">
+      <label for="select-flex">Direção do Flex: </label>
+      <select id="select-flex">
+        <option value="row">row</option>
+        <option value="row-reverse">row-reverse</option>
+        <option value="column">line</option>
+        <option value="column-reverse">line-reverse</option>
+      </select>
+      <ul id="container-flex">
+        <li class="bola"></li>
+        <li class="bola"></li>
+        <li class="bola"></li>
+        <li class="bola"></li>
+      </ul>
+    </section>
 
     <script>
       //1
@@ -71,14 +128,11 @@
 
       //4
 
-      const fundoCor = document.querySelector("#form-cor");
-
-      fundoCor.addEventListener("submit", (event) => {
-        event.preventDefault();
-        const corDigitada = document.querySelector("#input-cor").value;
-        document.body.style.backgroundColor = corDigitada;
-      });
-
+      document
+        .querySelector("#select-cor")
+        .addEventListener("change", function () {
+          document.querySelector("body").style.backgroundColor = this.value;
+        });
       //5
 
       const btnConta = document.querySelector("#btn-conta");
@@ -90,6 +144,47 @@
         valorContador++;
         spanContador.textContent = valorContador;
       });
+
+      // select-flex
+
+      document
+        .querySelector("#select-flex")
+        .addEventListener("change", function () {
+          document.querySelector("#container-flex").style.flexDirection =
+            this.value;
+        });
+
+      //6
+
+      document.querySelector("#utilizador").onsubmit = (e) => {
+        e.preventDefault();
+
+        const nome = document.querySelector("#nome").value;
+        const idade = document.querySelector("#idade").value;
+
+        document.querySelector("#mensagem-utilizador").textContent =
+          `Olá, o ${nome} tem ${idade}!`;
+      };
+
+      //7
+
+      if (!localStorage.getItem("autoCounter")) {
+        localStorage.setItem("autoCounter", 0);
+      }
+
+      const spanAutoCounter = document.querySelector("#automatic-counter");
+
+      spanAutoCounter.textContent = localStorage.getItem("autoCounter");
+
+      function incrementarAutomatico() {
+        let valorAtual = Number(localStorage.getItem("autoCounter"));
+        valorAtual++;
+
+        localStorage.setItem("autoCounter", valorAtual);
+        spanAutoCounter.textContent = valorAtual;
+      }
+
+      setInterval(incrementarAutomatico, 1000);
     </script>
   </body>
 </html>
