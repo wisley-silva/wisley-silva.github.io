@@ -73,3 +73,44 @@ if (selectFiltro) {
         }
     });
 }
+
+
+const selectOrdenar = document.querySelector("#ordenar-preco");
+
+if (selectOrdenar) {
+    selectOrdenar.addEventListener("change", (event) => {
+        const criterio = event.target.value;
+
+
+        let produtosOrdenados = [...todosOsProdutos];
+
+        if (criterio === "crescente") {
+
+            produtosOrdenados.sort((a, b) => a.price - b.price);
+        } else if (criterio === "decrescente") {
+
+            produtosOrdenados.sort((a, b) => b.price - a.price);
+        } else {
+
+            produtosOrdenados = [...todosOsProdutos];
+        }
+
+
+        renderProducts(produtosOrdenados);
+    });
+}
+
+// Selecionar o input de pesquisa
+const inputPesquisa = document.querySelector("#pesquisa-produto");
+
+if (inputPesquisa) {
+    inputPesquisa.addEventListener("input", (event) => {
+        const termoPesquisa = event.target.value.toLowerCase().trim();
+
+        const produtosFiltrados = todosOsProdutos.filter(product =>
+            product.title.toLowerCase().includes(termoPesquisa)
+        );
+
+        renderProducts(produtosFiltrados);
+    });
+}
