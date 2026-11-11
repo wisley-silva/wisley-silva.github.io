@@ -8,7 +8,8 @@
   </head>
   <body>
     <header>
-      <h1>Loja</h1>
+      <img src="images/deisi-inverse.svg" alt="DEISI Logo" class="logo-img">
+    <h1>DEISI Shop</h1>
       <nav>
         <ul>
           <li><a href="#produtos">Produtos</a></li>
@@ -39,10 +40,27 @@
       </section>
       <section id="produtos"></section>
 
-      <section id="cesto"></section>
+      <section id="cesto">
+        <h2>Cesto</h2>
+      <section id="lista-preco"></section>
+      <p>Custo Total: <span id="preco-total">0.00</span> €</p>
+
+      <section id="checkout-form">
+        <label>
+          <input type="checkbox" id="estudante-deisi"> És estudante do DEISI?
+        </label>
+        <br>
+        <label for="cupao-desconto">Cupão de desconto</label>
+        <input type="text" id="cupao-desconto">
+        <br>
+        <button id="btn-comprar">Comprar</button>
+      </section>
+
+      <section id="resultado-compra"></section>
+      </section>
     </main>
 
     <footer></footer>
-    <script src="main.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>
